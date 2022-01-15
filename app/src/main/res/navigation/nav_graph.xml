@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/mainBoardFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -15,4 +15,10 @@
         android:name="com.example.todomanager06.fragment.CreateTaskFragment"
         android:label="fragment_create_task"
         tools:layout="@layout/fragment_create_task" />
+
+    <fragment
+        android:id="@+id/mainBoardFragment"
+        android:name="com.example.todomanager06.boarding.MainBoardFragment"
+        android:label="fragment_main_board"
+        tools:layout="@layout/fragment_main_board" />
 </navigation>
