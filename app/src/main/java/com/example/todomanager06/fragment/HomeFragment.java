@@ -55,7 +55,8 @@ public class HomeFragment extends Fragment {
         binding.openCreateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(requireView()).navigate(R.id.createTaskFragment);
+                CreateTaskFragment createTaskFragment = new CreateTaskFragment();
+                createTaskFragment.show(requireActivity().getSupportFragmentManager(),"");
             }
         });
     }

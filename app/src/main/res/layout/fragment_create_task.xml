@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
     android:padding="12dp"
     tools:context=".fragment.CreateTaskFragment">
@@ -11,15 +13,86 @@
         android:id="@+id/task_ed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_background"
         android:hint="Text"
+        android:padding="5dp"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Due date"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/task_ed"/>
+
+    <TextView
+        android:id="@+id/choose_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_background"
+        android:drawableEnd="@drawable/ic_calendar"
+        android:drawablePadding="8dp"
+        android:padding="10dp"
+        android:text="20.08.21  "
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_hint" />
+
+    <TextView
+        android:id="@+id/repeat_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Repeat"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/task_ed"/>
+
+    <TextView
+        android:id="@+id/choose_repeat_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_background"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawablePadding="8dp"
+        android:padding="10dp"
+        android:text="Every week  "
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_hint" />
 
     <Button
-        android:layout_marginTop="12dp"
         android:id="@+id/apply_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Принять" />
+        android:layout_marginTop="12dp"
+        android:text="Add new task"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:background="@drawable/rectangle_button_background"
+        app:layout_constraintTop_toBottomOf="@id/choose_date_tv" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Back to task list"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/apply_btn"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

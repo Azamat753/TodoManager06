@@ -1,6 +1,7 @@
 package com.example.todomanager06.boarding;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -12,10 +13,12 @@ import com.example.todomanager06.model.ViewPagerModel;
 import java.util.ArrayList;
 
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder> {
-    ArrayList<ViewPagerModel> listPager = new ArrayList<>();
+    ArrayList<ViewPagerModel> listPager;
+    ItemClickListener listener;
 
-    public ViewPagerAdapter(ArrayList<ViewPagerModel> listPager) {
+    public ViewPagerAdapter(ArrayList<ViewPagerModel> listPager, ItemClickListener listener) {
         this.listPager = listPager;
+        this.listener = listener;
     }
 
     @NonNull
@@ -46,6 +49,12 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
             binding.titleTv.setText(model.getTitle());
             binding.descriptionTv.setText(model.getDescription());
             binding.imageView.setImageResource(model.getImage());
+           binding.skipBtn.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   listener.itemClick();
+               }
+           });
         }
     }
 }
