@@ -18,8 +18,10 @@ import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 
+import com.example.todomanager06.App;
 import com.example.todomanager06.R;
 import com.example.todomanager06.databinding.FragmentCreateTaskBinding;
+import com.example.todomanager06.model.TaskModel;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.Calendar;
@@ -29,6 +31,8 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
     private int startYear;
     private int starthMonth;
     private int startDay;
+    private String date;
+    private String repeat;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +51,8 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         binding.applyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendText();
+                writeToDataBase();
+                dismiss();
             }
         });
 
@@ -65,15 +70,11 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         });
     }
 
-    private void sendText() {
+
+    public void writeToDataBase() {
         String text = binding.taskEd.getText().toString();
-        if (text.isEmpty()) {
-            binding.taskEd.setError("Ошибка");
-        } else {
-            Bundle bundle = new Bundle();
-            bundle.putString("key", text);
-            Navigation.findNavController(requireView()).navigate(R.id.homeFragment, bundle);
-        }
+        TaskModel taskModel = new TaskModel(text, date, repeat);
+        App.getApp().getDb().taskDao().insert(taskModel);
     }
 
     private void showDatePickerDialog() {
@@ -97,7 +98,9 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         never.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.chooseRepeatTv.setText("Never");
+                String never = "Never";
+                binding.chooseRepeatTv.setText(never);
+                repeat = never;
                 alertDialog.dismiss();
             }
         });
@@ -106,6 +109,9 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
     @SuppressLint("SetTextI18n")
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        date = "" + day + "." + month + 1 + "." + year;
         binding.chooseDateTv.setText("" + day + "." + month + 1 + "." + year);
     }
+
+
 }

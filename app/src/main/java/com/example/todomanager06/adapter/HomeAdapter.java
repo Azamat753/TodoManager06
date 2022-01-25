@@ -7,14 +7,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todomanager06.databinding.ItemTaskBinding;
+import com.example.todomanager06.model.TaskModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
 
     private ItemTaskBinding binding;
 
-    ArrayList<String> list = new ArrayList<>();
+    List<TaskModel> list;
+
+    public HomeAdapter(List<TaskModel> list) {
+        this.list = list;
+    }
 
     @NonNull
     @Override
@@ -33,9 +39,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
         return list.size();
     }
 
-    public void addText(String text){
-        list.add(text);
-    }
 
     public class HomeHolder extends RecyclerView.ViewHolder {
 
@@ -44,8 +47,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
 
         }
 
-        public void onBind(String text) {
-            binding.titleTv.setText(text);
+        public void onBind(TaskModel model) {
+            binding.titleTv.setText(model.getTask());
+            binding.dateTv.setText(model.getDate());
+            binding.repeatTv.setText(model.getRepeat());
         }
     }
 
