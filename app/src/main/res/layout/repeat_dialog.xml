@@ -22,39 +22,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Never"
+            android:text="@string/never"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <RadioButton
+            android:id="@+id/Every_day_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Every day"
+            android:text="@string/every_day"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <RadioButton
+            android:id="@+id/Every_week_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Every week"
+            android:text="@string/every_week"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <RadioButton
+            android:id="@+id/Every_month_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Every month"
+            android:text="@string/every_month"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <RadioButton
+            android:id="@+id/Every_year_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Every year"
+            android:text="@string/every_year"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/Custom_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/custom"
             android:textColor="@color/black"
             android:textSize="20sp" />
 

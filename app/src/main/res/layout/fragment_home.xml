@@ -7,16 +7,29 @@
     android:orientation="vertical"
     tools:context=".fragment.HomeFragment">
 
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:title="Hello" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_recycler"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/big_width"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <Button
         android:id="@+id/open_create_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to Create" />
+        android:text="Создать задачу" />
+
+    <androidx.cardview.widget.CardView style="@style/CardStyle">
+
+        <Button
+            android:id="@+id/profile_btn"
+            style="@style/GradientButton" />
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

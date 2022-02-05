@@ -26,7 +26,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.Calendar;
 
-public class CreateTaskFragment extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener {
+public class CreateTaskBottomSheetDialogFragment extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener {
     FragmentCreateTaskBinding binding;
     private int startYear;
     private int starthMonth;
@@ -70,7 +70,6 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         });
     }
 
-
     public void writeToDataBase() {
         String text = binding.taskEd.getText().toString();
         TaskModel taskModel = new TaskModel(text, date, repeat);
@@ -95,12 +94,62 @@ public class CreateTaskFragment extends BottomSheetDialogFragment implements Dat
         alertDialog.setContentView(view);
         alertDialog.show();
         RadioButton never = alertDialog.findViewById(R.id.never_radioBtn);
+        RadioButton everyDay = alertDialog.findViewById(R.id.Every_day_btn);
+        RadioButton everyWeer = alertDialog.findViewById(R.id.Every_week_btn);
+        RadioButton everyMonth = alertDialog.findViewById(R.id.Every_month_btn);
+        RadioButton everyYear = alertDialog.findViewById(R.id.Every_year_btn);
+        RadioButton custom = alertDialog.findViewById(R.id.Custom_btn);
         never.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String never = "Never";
                 binding.chooseRepeatTv.setText(never);
                 repeat = never;
+                alertDialog.dismiss();
+            }
+        });
+        everyDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Every = "Every day";
+                binding.chooseRepeatTv.setText(Every);
+                repeat = Every;
+                alertDialog.dismiss();
+            }
+        });
+        everyWeer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String week = "Every week";
+                binding.chooseRepeatTv.setText(week);
+                repeat = week;
+                alertDialog.dismiss();
+            }
+        });
+        everyMonth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String month = "Every month";
+                binding.chooseRepeatTv.setText(month);
+                repeat = month;
+                alertDialog.dismiss();
+            }
+        });
+        everyYear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String year = "Every year";
+                binding.chooseRepeatTv.setText(year);
+                repeat = year;
+                alertDialog.dismiss();
+            }
+        });
+        custom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String custom = " Custom";
+                binding.chooseRepeatTv.setText(custom);
+                repeat = custom;
                 alertDialog.dismiss();
             }
         });

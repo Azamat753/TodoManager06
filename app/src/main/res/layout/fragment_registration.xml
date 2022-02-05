@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".fragment.auth.RegistrationFragment">
+
+    <EditText
+        android:id="@+id/number_ed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/rectangle_background"
+        android:inputType="phone"
+        android:hint="Number"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/code_ed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/rectangle_background"
+        android:hint="code"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/send_number_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Отправить номер телефона" />
+
+    <Button
+        android:id="@+id/send_code_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Отправить код" />
+
+</LinearLayout>

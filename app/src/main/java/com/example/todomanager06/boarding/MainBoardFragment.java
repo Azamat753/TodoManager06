@@ -25,7 +25,6 @@ public class MainBoardFragment extends Fragment implements ItemClickListener {
     ViewPagerAdapter adapter;
     ArrayList<ViewPagerModel> list = new ArrayList<>();
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

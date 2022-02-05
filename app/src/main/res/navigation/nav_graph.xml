@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainBoardFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -11,8 +11,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/createTaskFragment"
-        android:name="com.example.todomanager06.fragment.CreateTaskFragment"
+        android:id="@+id/createTaskBottomSheetDialogFragment"
+        android:name="com.example.todomanager06.fragment.CreateTaskBottomSheetDialogFragment"
         android:label="fragment_create_task"
         tools:layout="@layout/fragment_create_task" />
 
@@ -21,4 +21,24 @@
         android:name="com.example.todomanager06.boarding.MainBoardFragment"
         android:label="fragment_main_board"
         tools:layout="@layout/fragment_main_board" />
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.todomanager06.fragment.auth.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/finishRegistrationFragment"
+        android:name="com.example.todomanager06.fragment.auth.FinishRegistrationFragment"
+        android:label="fragment_finish_registration"
+        tools:layout="@layout/fragment_finish_registration" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.todomanager06.fragment.auth.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.todomanager06.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
